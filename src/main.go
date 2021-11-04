@@ -32,7 +32,9 @@ func main() {
 	intToSendToPi := positionToInt(0, 0)
 	pin = rpio.Pin(intToSendToPi)
 	pin.Output()
-	pin.Toggle()
-	time.Sleep(time.Second / 1)
-	pin.Toggle()
+
+	for x := 0; x < 20; x++ {
+		pin.Toggle()
+		time.Sleep(time.Second / 5)
+	}
 }
